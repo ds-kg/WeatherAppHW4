@@ -31,6 +31,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:text="Sunday, 19 May 2019  |  4:30PM"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="12dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="154dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="Mumbai , India"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
