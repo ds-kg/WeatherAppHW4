@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/ic_back"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_back"
     tools:context=".ui.firstFragment.FirstFragment">
 
 
@@ -25,7 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back" >
+        app:layout_constraintTop_toBottomOf="@id/back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,11 +34,11 @@
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
-                android:text="Sunday, 19 May 2019  |  4:30PM"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="12dp"
-                android:layout_height="wrap_content"/>
+                android:text="Sunday, 19 May 2019  |  4:30PM"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_location"
@@ -50,6 +50,232 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/mainTemp_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/regular"
+                android:text="33"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="°C"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toEndOf="@id/mainTemp_tv"
+                app:layout_constraintTop_toTopOf="@id/mainTemp_tv" />
+
+            <ImageView
+                android:id="@+id/tv_cloud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/cloud"
+                app:layout_constraintEnd_toStartOf="@id/mainTemp_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/mainTemp_tv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:text="Sunny"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_cloud" />
+
+            <TextView
+                android:id="@+id/firstGradus_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="35°C"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/mainTemp_tv"
+                app:layout_constraintTop_toTopOf="@id/mainTemp_tv" />
+
+            <TextView
+                android:id="@+id/secondGradus_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="27°C"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/mainTemp_tv"
+                app:layout_constraintTop_toBottomOf="@id/firstGradus_tv" />
+
+            <ImageView
+                android:id="@+id/speed_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:src="@drawable/speed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mainTemp_tv" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:id="@+id/pressure_mainTv"
+                android:text="1,007mBar"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/speed_tv" />
+
+
+            <TextView
+                android:id="@+id/pressure_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Pressure"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/speed_tv"
+                app:layout_constraintStart_toStartOf="@id/speed_tv"
+                app:layout_constraintTop_toBottomOf="@id/speed_tv" />
+
+            <ImageView
+                android:id="@+id/water_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/water"
+                app:layout_constraintEnd_toStartOf="@id/speed_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/speed_tv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="49%"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/water_tv"
+                app:layout_constraintStart_toStartOf="@id/water_tv"
+                app:layout_constraintTop_toBottomOf="@id/water_tv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Humidity"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/water_tv"
+                app:layout_constraintStart_toStartOf="@id/water_tv"
+                app:layout_constraintTop_toBottomOf="@id/water_tv" />
+
+            <ImageView
+                android:id="@+id/windy_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/windy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/speed_tv"
+                app:layout_constraintTop_toTopOf="@id/speed_tv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/wind_mainTv"
+                android:layout_marginTop="4dp"
+                android:text="23 km/h"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/windy_tv"
+                app:layout_constraintStart_toStartOf="@id/windy_tv"
+                app:layout_constraintTop_toBottomOf="@id/windy_tv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Wind"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/windy_tv"
+                app:layout_constraintStart_toStartOf="@id/windy_tv"
+                app:layout_constraintTop_toBottomOf="@id/windy_tv" />
+
+            <ImageView
+                android:id="@+id/sunset_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:src="@drawable/sunset"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pressure_tv" />
+
+
+            <TextView
+                android:id="@+id/sunset_mainTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="7:05 PM"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sunset_iv" />
+
+            <TextView
+                android:id="@+id/sunset_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunset"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/sunset_iv"
+                app:layout_constraintStart_toStartOf="@id/sunset_iv"
+                app:layout_constraintTop_toBottomOf="@+id/sunset_mainTv"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/clock"
+                android:id="@+id/clock_iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/sunset_iv"
+                app:layout_constraintTop_toTopOf="@id/sunset_iv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13h 1m"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/clock_iv"
+                app:layout_constraintEnd_toEndOf="@id/clock_iv"
+                app:layout_constraintStart_toStartOf="@id/clock_iv"
+                android:layout_marginTop="10dp"
+                android:id="@+id/daytime_mainTv"
+                />
+
+            <TextView
+                android:id="@+id/daytime_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daytime"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/daytime_mainTv"
+                app:layout_constraintStart_toStartOf="@id/daytime_mainTv"
+                app:layout_constraintTop_toBottomOf="@+id/sunset_mainTv"
+                />
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
