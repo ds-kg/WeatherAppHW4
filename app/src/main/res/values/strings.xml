@@ -2,4 +2,6 @@
     <string name="app_name">WeatherApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="daytime">Daytime</string>
+    <string name="_6_03_am">6:03 AM</string>
 </resources>
