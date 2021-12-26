@@ -20,7 +20,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/back"
@@ -76,7 +76,7 @@
                 app:layout_constraintTop_toTopOf="@id/mainTemp_tv" />
 
             <ImageView
-                android:id="@+id/tv_cloud"
+                android:id="@+id/iv_cloud"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -86,13 +86,14 @@
                 app:layout_constraintTop_toTopOf="@id/mainTemp_tv" />
 
             <TextView
+                android:id="@+id/weatherNow_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="68dp"
                 android:text="Sunny"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_cloud" />
+                app:layout_constraintTop_toBottomOf="@id/iv_cloud" />
 
             <TextView
                 android:id="@+id/firstGradus_tv"
@@ -129,6 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/regular"
                 android:text="1,007mBar"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -159,9 +161,11 @@
                 app:layout_constraintTop_toTopOf="@id/speed_tv" />
 
             <TextView
+                android:id="@+id/humidity_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/regular"
                 android:text="49%"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -193,6 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/regular"
                 android:text="23 km/h"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -257,6 +262,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/regular"
                 android:text="13h 1m"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -289,6 +295,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:fontFamily="@font/regular"
                 android:text="@string/_6_03_am"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -311,15 +318,14 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="340dp"
-        android:layout_height="110dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/item_first" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
