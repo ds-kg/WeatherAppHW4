@@ -35,8 +35,8 @@
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:text="Sunday, 19 May 2019  |  4:30PM"
+                android:layout_margin="10dp"
+                android:text="Monday, 27 December 2021"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
                 android:layout_marginTop="2dp"
                 android:id="@+id/tv_location"
                 android:layout_width="154dp"
-                android:layout_height="40dp"
+                android:layout_height="38dp"
                 android:fontFamily="@font/regular"
                 android:gravity="center"
                 android:text="Mumbai , India"
@@ -78,8 +78,8 @@
 
             <ImageView
                 android:id="@+id/iv_cloud"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="12dp"
                 android:src="@drawable/cloud"
                 app:layout_constraintEnd_toStartOf="@id/mainTemp_tv"

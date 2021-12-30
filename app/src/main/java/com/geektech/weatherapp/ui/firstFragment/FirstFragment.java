@@ -8,6 +8,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +32,8 @@ import java.util.ArrayList;
 
 public class FirstFragment extends Fragment {
 
+    private NavController controller;
+
     private FragmentFirstBinding binding;
     private FirstFragmentViewModel viewModel;
     private Main main;
@@ -46,6 +51,9 @@ public class FirstFragment extends Fragment {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(FirstFragmentViewModel.class);
         viewModel.getWeather();
+        NavHostFragment hostFragment = (NavHostFragment) requireActivity().getSupportFragmentManager()
+                .findFragmentById(R.id.navHost);
+        controller = hostFragment.getNavController();
     }
 
     @Override
@@ -78,7 +86,16 @@ public class FirstFragment extends Fragment {
                     break;
             }
         });
+
+        binding.tvLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavController navController = Navigation.findNavController(requireActivity(), R.id.navHost);
+                navController.navigate(R.id.secondFragment);
+            }
+        });
     }
+
 
     @SuppressLint("SetTextI18n")
     private void setWeather() {
@@ -92,6 +109,5 @@ public class FirstFragment extends Fragment {
         binding.mainTempTv.setText(String.valueOf((int) Math.round(main.getTemp())));
         binding.pressureMainTv.setText(main.getPressure() + "mBar");
         binding.humidityTv.setText(main.getHumidity() + "%");
-
     }
 }
