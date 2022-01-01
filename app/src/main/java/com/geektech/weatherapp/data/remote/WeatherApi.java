@@ -14,4 +14,8 @@ public interface WeatherApi {
             @Query("appid") String appId,
             @Query("units") String metric
     );
+
+    @GET("weather?")
+    Call<Weather> getCity(
+            @Query("q") String city);
 }

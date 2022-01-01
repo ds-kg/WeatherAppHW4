@@ -30,9 +30,13 @@ import com.geektech.weatherapp.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+
 public class FirstFragment extends Fragment {
 
     private NavController controller;
+    
 
     private FragmentFirstBinding binding;
     private FirstFragmentViewModel viewModel;

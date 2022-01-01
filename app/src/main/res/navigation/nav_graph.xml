@@ -10,9 +10,25 @@
         android:name="com.geektech.weatherapp.ui.firstFragment.FirstFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" />
+
+
+    <argument android:name="city"
+        app:argType="String"
+        app:nullable="false"/>
+
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.geektech.weatherapp.ui.secondFragment.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_second" >
+
+        <action
+            android:id="@+id/action_secondFragment_to_firstFragment"
+            app:destination="@id/firstFragment" >
+            <argument android:name="city"
+                app:argType="String"
+                app:nullable="false"/>
+        </action>
+
+    </fragment>
 </navigation>
