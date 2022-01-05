@@ -1,5 +1,6 @@
 package com.geektech.weatherapp.data.repository;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.geektech.weatherapp.App;
@@ -44,4 +45,26 @@ public class MainRepository {
         return mutableLiveData;
     }
 
+    public MutableLiveData<Resource<Weather>> getWeatherByCity(String cityName) {
+
+        MutableLiveData<Resource<Weather>> mutableLiveData = new MutableLiveData<>();
+        mutableLiveData.setValue(Resource.loading());
+        api.getTemp(cityName, "82ed191a02db835cc3b61d5910def7b0", "metric").enqueue(new Callback<Weather>() {
+            @Override
+            public void onResponse(Call<Weather> call, Response<Weather> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    mutableLiveData.setValue(Resource.success(response.body()));
+                } else {
+                    mutableLiveData.setValue(Resource.error(response.message(), null));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Weather> call, Throwable t) {
+                mutableLiveData.setValue(Resource.error(t.getLocalizedMessage(), null));
+            }
+        });
+
+        return mutableLiveData;
+    }
 }

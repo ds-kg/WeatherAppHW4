@@ -45,7 +45,9 @@ public class SecondFragment extends Fragment {
         binding.btnCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                NavController navController = Navigation.findNavController(requireActivity(), R.id.navHost);
+                navController.navigate(SecondFragmentDirections
+                        .actionSecondFragmentToFirstFragment(binding.edtCity.getText().toString()));
             }
         });
     }

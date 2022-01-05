@@ -36,7 +36,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class FirstFragment extends Fragment {
 
     private NavController controller;
-    
+    private FirstFragmentArgs args;
 
     private FragmentFirstBinding binding;
     private FirstFragmentViewModel viewModel;
@@ -53,6 +53,7 @@ public class FirstFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        args = FirstFragmentArgs.fromBundle(getArguments());
         viewModel = new ViewModelProvider(requireActivity()).get(FirstFragmentViewModel.class);
         viewModel.getWeather();
         NavHostFragment hostFragment = (NavHostFragment) requireActivity().getSupportFragmentManager()
@@ -98,6 +99,12 @@ public class FirstFragment extends Fragment {
                 navController.navigate(R.id.secondFragment);
             }
         });
+
+        setData();
+    }
+
+    private void setData() {
+        viewModel.getWeatherByCity(args.getCity());
     }
 
 

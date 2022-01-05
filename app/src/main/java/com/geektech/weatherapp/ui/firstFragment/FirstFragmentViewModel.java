@@ -26,4 +26,8 @@ public class FirstFragmentViewModel extends ViewModel {
     public void getWeather() {
         liveData = repository.getWeather();
     }
+
+    public void getWeatherByCity(String cityName){
+        liveData = repository.getWeatherByCity(cityName);
+    }
 }
