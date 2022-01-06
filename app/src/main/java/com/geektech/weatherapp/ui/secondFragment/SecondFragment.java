@@ -15,7 +15,9 @@ import android.view.ViewGroup;
 import com.geektech.weatherapp.R;
 import com.geektech.weatherapp.databinding.FragmentSecondBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class SecondFragment extends Fragment {
 
     private NavController controller;
@@ -28,7 +30,7 @@ public class SecondFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        controller = Navigation.findNavController(requireActivity(), R.id.secondFragment);
+        controller = Navigation.findNavController(requireActivity(), R.id.navHost);
     }
 
     @Override
@@ -45,8 +47,7 @@ public class SecondFragment extends Fragment {
         binding.btnCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavController navController = Navigation.findNavController(requireActivity(), R.id.navHost);
-                navController.navigate(SecondFragmentDirections
+                controller.navigate(SecondFragmentDirections
                         .actionSecondFragmentToFirstFragment(binding.edtCity.getText().toString()));
             }
         });

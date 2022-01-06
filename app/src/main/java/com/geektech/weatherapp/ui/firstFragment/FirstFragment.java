@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
-
+@AndroidEntryPoint
 public class FirstFragment extends Fragment {
 
     private NavController controller;
@@ -46,16 +46,17 @@ public class FirstFragment extends Fragment {
     private ArrayList<Weather__1> weather__1 = new ArrayList<>();
     private Wind wind;
 
-
     public FirstFragment() {
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        args = FirstFragmentArgs.fromBundle(getArguments());
+
         viewModel = new ViewModelProvider(requireActivity()).get(FirstFragmentViewModel.class);
-        viewModel.getWeather();
+        args = FirstFragmentArgs.fromBundle(getArguments());
+        viewModel.setCity(args.getCity());
+        viewModel.getWeatherByCity();
         NavHostFragment hostFragment = (NavHostFragment) requireActivity().getSupportFragmentManager()
                 .findFragmentById(R.id.navHost);
         controller = hostFragment.getNavController();
@@ -95,16 +96,9 @@ public class FirstFragment extends Fragment {
         binding.tvLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavController navController = Navigation.findNavController(requireActivity(), R.id.navHost);
-                navController.navigate(R.id.secondFragment);
+                controller.navigate(R.id.action_firstFragment_to_secondFragment);
             }
         });
-
-        setData();
-    }
-
-    private void setData() {
-        viewModel.getWeatherByCity(args.getCity());
     }
 
 

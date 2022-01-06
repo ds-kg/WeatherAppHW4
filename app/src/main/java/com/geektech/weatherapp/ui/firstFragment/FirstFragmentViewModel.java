@@ -17,6 +17,11 @@ public class FirstFragmentViewModel extends ViewModel {
 
     public LiveData<Resource<Weather>> liveData;
     private MainRepository repository;
+    private String city;
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     @Inject
     public FirstFragmentViewModel(MainRepository repository) {
@@ -27,7 +32,9 @@ public class FirstFragmentViewModel extends ViewModel {
         liveData = repository.getWeather();
     }
 
-    public void getWeatherByCity(String cityName){
-        liveData = repository.getWeatherByCity(cityName);
+    public void getWeatherByCity(){
+        repository.setCity(city);
+        liveData = repository.getWeather();
+
     }
 }
